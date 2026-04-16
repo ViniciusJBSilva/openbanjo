@@ -1,0 +1,71 @@
+{
+  "name": "openbanjo",
+  "version": "0.2.0",
+  "description": "Interactive workspace desktop client for Codex and Claude coding sessions.",
+  "license": "UNLICENSED",
+  "author": "viniciuswr",
+  "type": "module",
+  "bin": {
+    "openbanjo": "./bin/openbanjo.js"
+  },
+  "files": [
+    "bin",
+    "docs/npm-publish.md",
+    "scripts/install-binary.js",
+    "scripts/platform.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniciusJBSilva/openbanjo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ViniciusJBSilva/openbanjo/issues"
+  },
+  "homepage": "https://github.com/ViniciusJBSilva/openbanjo#readme",
+  "keywords": [
+    "tauri",
+    "desktop",
+    "codex",
+    "claude",
+    "workspace"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "node bin/openbanjo.js",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "pack:check": "npm pack --dry-run",
+    "postinstall": "node scripts/install-binary.js",
+    "preview": "vite preview",
+    "tauri": "node scripts/run-tauri.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@tauri-apps/api": "^2.10.1",
+    "@tauri-apps/cli": "^2.10.1",
+    "@tauri-apps/plugin-dialog": "^2.6.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.27",
+    "i18next": "^26.0.5",
+    "postcss": "^8.5.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^17.0.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "@typescript-eslint/eslint-plugin": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7"
+  }
+}

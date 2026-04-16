@@ -1,0 +1,74 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - generic [ref=e6]:
+      - button "CODEX Workspace" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e13]:
+          - generic [ref=e14]: CODEX
+          - generic [ref=e15]: Workspace
+      - button "Selecionar Pasta" [ref=e16] [cursor=pointer]:
+        - img [ref=e17]
+        - text: Selecionar Pasta
+      - generic [ref=e19]:
+        - generic [ref=e20]: Projetos recentes
+        - generic [ref=e21]:
+          - img
+          - textbox "Projetos recentes" [ref=e22]:
+            - /placeholder: Filtrar projetos...
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: PROJETOS RECENTES
+          - generic [ref=e27]: Nenhum projeto recente encontrado.
+        - generic [ref=e28]:
+          - generic [ref=e29]: PROJETOS FAVORITOS
+          - generic [ref=e31]: Marque projetos com estrela para criar favoritos.
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - img [ref=e34]
+          - text: Runtime pronto
+        - paragraph [ref=e37]: Selecione uma pasta para começar a montar o cockpit do projeto.
+  - generic [ref=e38]:
+    - main:
+      - generic [ref=e39]:
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - img [ref=e44]
+              - text: Workspace cockpit
+            - 'heading "Abra um projeto e transforme o `CLI app` em uma cabine operacional para o Codex." [level=1] [ref=e48]'
+            - paragraph [ref=e49]: Escolha uma pasta para carregar branch, stack detectada, contexto do workspace e um terminal embutido pronto para conversar com o Codex CLI sem sair do app.
+            - button "Selecionar pasta" [ref=e51] [cursor=pointer]:
+              - img [ref=e52]
+              - text: Selecionar pasta
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]: Projetos persistidos
+              - generic [ref=e57]: "0"
+            - generic [ref=e58]:
+              - generic [ref=e59]: Sessão embarcada
+              - generic [ref=e60]: PTY + Codex
+            - generic [ref=e61]:
+              - generic [ref=e62]: Entrada principal
+              - generic [ref=e63]: Sidebar ativa
+        - generic [ref=e64]: Cannot read properties of undefined (reading 'invoke')
+      - generic [ref=e65]:
+        - article [ref=e66]:
+          - heading "O que muda com esse layout" [level=2] [ref=e67]
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - generic [ref=e70]: "1"
+              - generic [ref=e71]: Sidebar fixa
+              - paragraph [ref=e72]: Recents, favoritos e reabertura do workspace ficam sempre acessíveis.
+            - generic [ref=e73]:
+              - generic [ref=e74]: "2"
+              - generic [ref=e75]: Dashboard contextual
+              - paragraph [ref=e76]: Branch, commit, stack e status do projeto aparecem no topo da área principal.
+            - generic [ref=e77]:
+              - generic [ref=e78]: "3"
+              - generic [ref=e79]: Terminal dominante
+              - paragraph [ref=e80]: A sessão PTY continua sendo o centro da experiência, com ações prontas ao lado.
+        - article [ref=e81]:
+          - heading "Próximo passo recomendado" [level=2] [ref=e82]
+          - generic [ref=e83]:
+            - generic [ref=e84]: Nenhum workspace ainda
+            - paragraph [ref=e85]: Assim que você abrir a primeira pasta, o app passa a mostrar o dashboard completo com atalho para iniciar o Codex no contexto do projeto.

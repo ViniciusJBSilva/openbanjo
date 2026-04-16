@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  linux:
+    name: Build Linux x64
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Tauri Linux dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            curl \
+            file \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            libssl-dev \
+            libwebkit2gtk-4.1-dev \
+            patchelf \
+            wget
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build AppImage
+        run: npm run tauri -- build --bundles appimage
+
+      - name: Prepare release assets
+        run: |
+          mkdir -p release-assets
+          appimage_path="$(find src-tauri/target/release/bundle/appimage -name '*.AppImage' -print -quit)"
+          if [ -z "$appimage_path" ]; then
+            echo "No AppImage found"
+            exit 1
+          fi
+          cp "$appimage_path" release-assets/openbanjo-linux-x64.AppImage
+          cd release-assets
+          sha256sum openbanjo-linux-x64.AppImage > openbanjo-linux-x64.AppImage.sha256
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" release-assets/* --clobber
+          else
+            gh release create "$tag" release-assets/* --title "$tag" --notes "OpenBanjo $tag"
+          fi
