@@ -110,14 +110,6 @@ Check the npm package contents before publishing:
 npm run pack:check
 ```
 
-Publish the package:
-
-```bash
-git tag v0.2.0
-git push origin v0.2.0
-npm publish --access public
-```
-
 ## Project Structure
 
 - `src/` contains the React app, feature modules, shared UI, and i18n resources.
